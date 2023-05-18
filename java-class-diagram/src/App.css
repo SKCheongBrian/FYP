@@ -1,0 +1,14 @@
+.App {
+  text-align: center;
+  background-color: dimgrey;
+}
+
+.submit-bar {
+  height: 38px;
+  background-color: darkgrey;
+}
+
+.rowC {
+  display: flex;
+  flex-direction: row;
+}
