@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="java UML class diagram tool">
+    <meta name="keywords" content="java UML class diagram tool">
+    
+    <title>Java Class Diagram</title>
+    
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+    
+    <script>
+    var $j = jQuery.noConflict();
+    </script>
+    
+    <!-- External Libraries -->
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+    
+    <!-- SVG File Saver -->
+    <script src="https://cdn.rawgit.com/eligrey/FileSaver.js/e9d941381475b5df8b7d7691013401e171014e89/FileSaver.min.js"></script>
+    <script src="vendor/SVGtoPNG.js"></script>
+    
+    <!-- Graphviz -->
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://unpkg.com/@hpcc-js/wasm@0.3.11/dist/index.min.js"></script>
+    <script src="https://unpkg.com/d3-graphviz@3.0.5/build/d3-graphviz.js"></script>
+    
+    <!-- Ace Editor -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.9.6/ace.js" integrity="sha512-czfWedq9cnMibaqVP2Sw5Aw1PTTabHxMuTOkYkL15cbCYiatPIbxdV0zwhfBZKNODg0zFqmbz8f7rKmd6tfR/Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+    <!-- Mermaid -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    
+    <!-- Libraries -->
+    <script src="./Lib/parser.js"></script>
+    <script src="./Lib/editor.js"></script>
+    <script src="./Lib/errors.js"></script>
+    <script src="./Lib/mermaid.js"></script>
+    <link rel="stylesheet" href="common.css">
+  </head>
+  <body style="position:relative">
+    <div style="width:100%; height:55px">
+      <h1 style="font-size:36px; font-weight:700; padding-left:15px">Class Diagram</h1>
+    </div>
+    
+    <div style="width:100%;height:calc(100vh - 55px - 25px)">
+      <!-- CODE -->
+      <div style="width:40%;height:calc(100vh - 55px - 25px);float:left">
+      
+        <div style="width:100%;height:calc(75vh - 55px  - 25px)">
+          <!-- DOT -->
+          <div style="height:calc(75vh - 55px - 25px)">
+            <!-- Segment -->
+            <h2>Java</h2>
+            <!-- Editor -->
+            <div id='erd_code' class='editor' style="height:calc(75vh - 55px - 25px - 38px - 25px)"></div>
+            <!-- Upload -->
+            <div class="input-group" style="height:38px">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fa fa-file" aria-hidden="true"></i></span>
+              </div>
+              <div class="custom-file input-group-sm">
+                <input type="file" class="custom-file-input" id="upload">
+                <label class="custom-file-label" for="upload">Choose file</label>
+              </div>
+              <div class="input-group-append">
+                <button type='button' class='btn btn-outline-secondary btn-sm' id='compile' style="height:38px">
+                  <i class="fas fa-sign-in-alt"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Options -->
+        <div style="height:calc(25vh)">
+          <!-- Console -->
+          <div id='cons' class='console' style="height:calc(25vh)"></div>
+        </div>
+      </div>
+      
+      <!-- Diagram -->
+      <div class="graph-min" id="graph-area">
+        <!-- Segment -->
+        <h2 style="z-index:5">Diagram</h2>
+        <div id="graph" class="cy-min"></div>
+        <span class="dl"><i class="fas fa-save" id="dl"></i></span>
+        <!-- <span class="fs"><i class="fas fa-expand" id="fs"></i></span> -->
+      </div>
+    </div>
+    
+    <div id="copyright" class="center" style="height:25px">
+    </div>
+    
+    <script src="./init.js"></script>
+    <script>
+      document.getElementById('copyright').innerHTML = `&#169; 2022-${new Date().getFullYear()}  National University of Singapore, Adi Yoga Sidi Prabawa`;
+    </script>
+  </body>
+</html>
+

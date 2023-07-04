@@ -1,0 +1,24 @@
+.center { height: 25px; text-align: center; justify-content: center; border-top: 1px solid #000; }
+
+.consolas { font-family: Consolas,monaco,monospace; }
+.noselection .ace_marker-layer .ace_selection { background: transparent; }
+.noselection .ace_cursor { color: transparent; }
+* { scrollbar-width: thin; }
+*::-webkit-scrollbar { width: 12px; }
+*::-webkit-scrollbar-thumb { border-radius: 20px; }
+.ace_gutter-cell.ace_breakpoint{ border-radius: 20px 0px 0px 20px;  box-shadow: 0px 0px 1px 1px red inset; }
+
+h2 { height: 25px; font-size: 24px; font-weight: 300; margin: 0; padding: 0; }
+body { display: inline }
+.dl { position:absolute; bottom: 0px; right: 5px; z-index: 5; color: #777; cursor: pointer; }
+.fs { position:absolute; top: 35px; right: 5px; z-index: 5; color: #777; cursor: pointer; }
+.dl:hover { color: #111 }
+.fs:hover { color: #111 }
+
+.graph-min { width:60%; height:calc(100vh - 55px - 25px); float:right; position:relative; font-size:24px }
+.graph-full { position: fixed; width: 100%; height: calc(100vh); top: 0; background-color: white; z-index: 9; font-size:48px;
+}
+.cy-min { text-align:center; z-index:4; width:100%; height: calc(100vh - 55px - 25px - 25px); overflow:auto }
+.cy-full { text-align:center; z-index:4; width:100%; height: calc(100vh - 25px) }
+
+canvas { left: 0 } /* weird correction for cytoscape */
